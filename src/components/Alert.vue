@@ -100,7 +100,8 @@
         min-height="250"
         location="dasdsa"
         tag="span"
-        theme="dark">   
+        theme="light"
+        color="secondary">   
         <p>tag="span" | 태그를 바꿔줌</p>
         <p>theme="dark"</p>
         <p>theme 설정은 https://next.vuetifyjs.com/en/features/theme/ 여기서 보기</p>
@@ -144,7 +145,6 @@
         variant="outlined">   
         <p>variant="outlined"</p>
     </v-alert>
-
     <v-alert 
         width="300" 
         min-height="250"
@@ -157,6 +157,43 @@
         variant="plain">   
         <p>variant="plain"</p>
     </v-alert>
+
+    <transition name="fade">
+        <v-alert 
+            ref="abc_abc"
+            width="300" 
+            min-height="250"
+            v-model="alert">   
+            <p>transition 시도 vue3 beta에선 alert에 트랜지션 api가 없음 그래서 그냥 vue에서 fade넣는 방식대로 넣었음</p>
+        </v-alert>
+    </transition>
+    <button @click="alert = !alert;">버튼</button>
+
+    <v-alert 
+        width="800" 
+        min-height="250"
+        closable
+        title="title부분"
+        text="text부분"
+        color="teal-darken-4"
+        density="compact"
+        border="start"
+        variant="elevated"
+        class="text-white pa-0">
+        <template v-slot:append>
+            v-slot:append
+        </template>   
+        <template v-slot:close>
+            v-slot:close
+        </template> 
+        <template v-slot:prepend>
+            v-slot:prepend (아이콘 부분)
+        </template>
+        <p>v-slot테스트</p>
+        <p>class="text-white"</p>
+        <p>slot부분이 많을 수록 콘텐츠 부분이 좁아짐</p>
+        <p>실제 사용할땐 아이콘등을 사용할 거라 문제없을듯</p>
+    </v-alert>
 </template>
 elevation
 <script>
@@ -164,14 +201,22 @@ export default {
     name:'AlertComponent',
     data() {
         return {
-            alert:true
+            alert:true,
+            d:false
         }
-    },
+    }
 }
 </script>
 
 <style scoped>
 .v-alert {
     margin-bottom:20px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
