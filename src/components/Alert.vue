@@ -1,4 +1,4 @@
-<template id="subMain">
+<template>
     <v-alert 
         color="red" 
         width="300" 
@@ -98,10 +98,11 @@
     <v-alert 
         width="300" 
         min-height="250"
-        location="dasdsa"
+        location="bottom"
         tag="span"
         theme="light"
         color="secondary">   
+        <p>location="bottom"</p>
         <p>tag="span" | 태그를 바꿔줌</p>
         <p>theme="dark"</p>
         <p>theme 설정은 https://next.vuetifyjs.com/en/features/theme/ 여기서 보기</p>
