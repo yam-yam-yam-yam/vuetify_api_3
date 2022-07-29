@@ -22,19 +22,22 @@
 <script>
 import AlertComponent from './components/Alert.vue'
 import AppBarComponent from './components/AppBar.vue'
+import AvatarsComponent from './components/Avatars.vue'
 
 export default {
   name: 'AppComponent',
   components: {
     AlertComponent,
-    AppBarComponent
+    AppBarComponent,
+    AvatarsComponent
   },
   data() {
     return {
       tab:undefined,
       items:[
         'AlertComponent',
-        'AppBarComponent'
+        'AppBarComponent',
+        'AvatarsComponent'
       ]
     }
   },
